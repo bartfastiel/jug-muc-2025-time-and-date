@@ -16,6 +16,24 @@
   * Wäre die Stunde vielleicht ein 23tel oder 25tel des Tages (Sommerzeit-Winterzeit-Zeitumstellung)
   * Oder hätte eine der Minuten vielleicht 61 Sekunden (Schaltsekunde)
 
+## Vorstellung
+
+* Vor 20 Jahren habe ich bei einer großen Versicherung Java gelernt
+* Und danach z.B. bei einem Stromnetzbetreiber ein System Entwickelt um den internationalen Handelspartnern die zu übertragenden Strommengen pro Stunde zu melden
+* Und für Münchens öffentliche Verkehrsmittel ein System zur Protokollierung von Unfällen geschrieben
+* Derzeit arbeite ich in einem Forschungsprojekt an einem SmartHome-System
+* Disclaimer: Aber dieser Vortrag ist privat und hat nicht mit meinem aktuellen oder früheren Arbeitgebern zu tun
+
+* Oft der Gedanke: nehmen wir doch eine einfache Lösung für Datum und Uhrzeit
+* "Was soll da schon schiefgehen?"
+
+* Nehmen wir doch einfach durchgehende long
+* Oder durchgehend LocalDateTime
+* "Was soll da schon schiefgehen?"
+
+* Ich sage es vor, ihr sagt es nach: "Was soll da schon schiefgehen?"
+* Alle: "Was soll da schon schiefgehen?"
+
 ## Schaltsekunde
 
 > On days that do have a leap second, the leap second is spread equally over the last 1000 seconds of the day, maintaining the appearance of exactly 86400 seconds per day.
