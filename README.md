@@ -38,6 +38,17 @@
   * Awareness für verschiedene Fallstricke schaffen
   * Überzeugen, dass man die Java-API nutzen sollte und nicht selbst implementieren
 
+## Eine Welt in UTC
+
+* Zeitzonen, Zeitumstellung, Schaltsekunden
+* Alles kompliziert
+* Wie würde die Welt aussehen, wenn wir global in UTC leben würden?
+* "Was soll da schon schiefgehen?"
+
+* Los Angeles feiert Nachmittags Silvester
+* Geburtstage gehen von Nachmittag zu Nachmittag
+* In einem Roman steht, dass der Protagonist bis 9 Uhr schläft. Ohne seine Position weiß man nicht, ob das früh oder spät ist.
+
 ## Schaltsekunde
 
 > On days that do have a leap second, the leap second is spread equally over the last 1000 seconds of the day, maintaining the appearance of exactly 86400 seconds per day.
