@@ -19,7 +19,7 @@
 ## Vorstellung
 
 * Vor 20 Jahren habe ich bei einer großen Versicherung Java gelernt
-* Und danach z.B. bei einem Stromnetzbetreiber ein System Entwickelt um den internationalen Handelspartnern die zu übertragenden Strommengen pro Stunde zu melden
+* Und danach z.B. bei einem Stromnetzbetreiber ein System entwickelt um den internationalen Handelspartnern die zu übertragenden Strommengen pro Stunde zu melden
 * Und für Münchens öffentliche Verkehrsmittel ein System zur Protokollierung von Unfällen geschrieben
 * Derzeit arbeite ich in einem Forschungsprojekt an einem SmartHome-System
 * Disclaimer: Aber dieser Vortrag ist privat und hat nicht mit meinem aktuellen oder früheren Arbeitgebern zu tun
@@ -33,6 +33,10 @@
 
 * Ich sage es vor, ihr sagt es nach: "Was soll da schon schiefgehen?"
 * Alle: "Was soll da schon schiefgehen?"
+
+* Und das ist auch das Ziel des Vortrags:
+  * Awareness für verschiedene Fallstricke schaffen
+  * Überzeugen, dass man die Java-API nutzen sollte und nicht selbst implementieren
 
 ## Schaltsekunde
 
