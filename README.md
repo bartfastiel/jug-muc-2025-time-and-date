@@ -102,6 +102,19 @@ unit Hz, which is equal to s⁻¹.
   * Zeitspannen (Strecke auf dem Zeitstrahl)
   * Zeitdauern (Länge der Strecke)
 
+## In Java
+
+* Bitte bloß nicht java.sql.Date verwenden
+  * (Nur für Datenbankzugriffe vorgesehen)
+* Bitte auch nicht java.util.Date verwenden (und GregorianCalendar usw)
+  * (Vor Java 8)
+  * ... und super unpraktisch (Jahreszahl minus 1900, Monat 0-basiert)
+* Sondern java.time
+  * Immutables
+  * Null-safe
+  * Thread-safe
+* Oder vielleicht auch mal `long`
+
 ## Schaltsekunde
 
 > On days that do have a leap second, the leap second is spread equally over the last 1000 seconds of the day, maintaining the appearance of exactly 86400 seconds per day.
