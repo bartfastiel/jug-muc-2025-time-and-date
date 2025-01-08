@@ -53,6 +53,12 @@
   * Ethnische Gruppen, die sich nicht an die Zeitzone ihres Landes halten
   * Staaten, die von anderen Staaten nicht anerkannt werden
 
+* Sehr praktisch ist die zivile Zeit, weil man bei Angaben:
+  * Jahreszeit aus dem Datum ablesen kann
+  * Man einfach nachrechnen kann, wie viel Jahre man alt war
+  * Man erkennt in welchem Steuerjahr eine Zahlung fällig ist
+  * Und ob es Morgens oder Abends ist
+
 ## Wissenschaftliche Zeit
 
 > The second, symbol s, is the SI unit of time. It is defined by taking the fixed numerical
@@ -109,3 +115,7 @@ unit Hz, which is equal to s⁻¹.
 * (20+25)² = 2025
 * (0+1+2+3+4+5+6+7+8+9)² = 2025
 * 0³ + 1³ + 2³ + 3³ + 4³ + 5³ + 6³ + 7³ + 8³ + 9³ = 2025
+
+## Further reading
+
+* [JavaDoc java.time in Java 23](https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/time/package-summary.html)
