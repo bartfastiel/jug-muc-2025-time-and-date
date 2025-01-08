@@ -103,3 +103,9 @@ unit Hz, which is equal to s⁻¹.
 * Java versucht die Schaltsekunde für Entwickler zu verstecken
 * An Tagen mit Schaltsekunden sind die letzten 1000 Sekunden des Tages länger (Uhr tickt langsamer)
 * `Instant.parse("2016-12-31T23:59:60Z")` entspricht `Instant.parse("2016-12-31T23:59:59Z")`
+
+## Fun facts about 2025
+
+* (20+25)² = 2025
+* (0+1+2+3+4+5+6+7+8+9)² = 2025
+* 0³ + 1³ + 2³ + 3³ + 4³ + 5³ + 6³ + 7³ + 8³ + 9³ = 2025
