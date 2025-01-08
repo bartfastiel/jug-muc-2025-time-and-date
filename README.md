@@ -38,6 +38,34 @@
   * Awareness für verschiedene Fallstricke schaffen
   * Überzeugen, dass man die Java-API nutzen sollte und nicht selbst implementieren
 
+## Zivile Zeit
+
+* Ein Tag dauert also nicht immer 24 Stunden
+* Die Zeitzonen werden von den Regierungen der Staaten festgelegt
+  * Und orientieren sich entsprechend an politischen Grenzen
+* Wie wir die Zeiger unserer Uhren stellen, ist also eine politische Entscheidung
+* Festgelegt durch Politiker (nicht natürlich, nicht mathematisch)
+* Und die Regeln können sich in Zukunft ändern (Sommerzeit-Abschaffung, Grenzverschiebungen)
+
+* Und entsprechend ist das super komplex
+  * Zeitzonen mit halben Stunden Verschiebung zu UTC
+  * Zeitzonen mit Viertelstunden Verschiebung zu UTC
+  * Ethnische Gruppen, die sich nicht an die Zeitzone ihres Landes halten
+  * Staaten, die von anderen Staaten nicht anerkannt werden
+
+## Wissenschaftliche Zeit
+
+> The second, symbol s, is the SI unit of time. It is defined by taking the fixed numerical
+value of the caesium frequency, ∆νCs, the unperturbed ground-state hyperfine
+transition frequency of the caesium 133 atom, to be 9 192 631 770 when expressed in the
+unit Hz, which is equal to s⁻¹.
+> International Bureau of Weights and Measures V3.01 August 2024 https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf
+
+* Und dieses Dokument definiert auch
+  * 1 Minute = 60 Sekunden
+  * 1 Stunde = 60 Minuten
+  * 1 Tag = 24 Stunden
+
 ## Eine Welt in UTC
 
 * Zeitzonen, Zeitumstellung, Schaltsekunden
@@ -48,6 +76,25 @@
 * Los Angeles feiert Nachmittags Silvester
 * Geburtstage gehen von Nachmittag zu Nachmittag
 * In einem Roman steht, dass der Protagonist bis 9 Uhr schläft. Ohne seine Position weiß man nicht, ob das früh oder spät ist.
+
+## Beide Zeitsysteme haben ihre Berechtigung
+
+* Wir merken: beide Zeitsysteme haben ihre Berechtigung
+* Zivile Zeit für uns Menschen
+  * für Politik
+  * für Wirtschaft
+  * für unsere Traditionen und Feste
+* Wissenschaftliche Zeit für die Naturgesetze
+  * für die Astronomie
+  * um die Ergebnisse von Experimenten zu reproduzieren
+  * um die Marathon-Bestzeit zu dokumentieren
+
+## Wofür wir Datum und Uhrzeit nutzen
+
+* Wir nutzen Datum und Uhrzeit um verschiedene Dinge auszudrücken
+  * Zeitpunkte (Punkt auf dem Zeitstrahl)
+  * Zeitspannen (Strecke auf dem Zeitstrahl)
+  * Zeitdauern (Länge der Strecke)
 
 ## Schaltsekunde
 
