@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @see Instant
  */
-public class LeapSecondTest {
+class LeapSecondTest {
 
 	@Test
 	void java_parses_leap_second_to_second_59() {
