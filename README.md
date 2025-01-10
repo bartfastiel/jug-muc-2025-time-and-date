@@ -1,5 +1,31 @@
 # bartfastiel's presentation for Java User Group Munich about date and time
 
+## Luftballon platzen lassen
+
+* in Java: Zeitpunkt eines Ereignisses speichern
+* welchen Datentyp nehmen?
+* Jemand bitte: Genauen Zeitpunkt des Platzens merken
+
+* *Platzt*
+
+* Wie viel Uhr war es?
+* Wie speichern wir so etwas? (Sinnbildlich für Serverausfall, Klick auf "Ich stimme zu", ...)
+  * Mit Zeitzone?
+  * Oder nur mit Zeitverschiebung zu UTC?
+  * Als Sekunden seit 1970?
+  * Als long? Als Date? Als LocalDateTime?
+
+## LocalDateTime
+
+```java
+void main() {
+	var balloonPopped = LocalDateTime.of(2025, 1, 13, 20, 0, 0, 0);
+	System.out.println(balloonPopped);
+}
+```
+
+
+
 ## Opener
 
 * Willkommen zu unserem Abend über Date und Time in Java
