@@ -62,6 +62,30 @@ ENTRYPOINT ["java", "--enable-preview", "src/main/java/Baloon.java"]
   * => Achtung, nicht eindeutig
   * => Achtung, Lücken
 
+## OffsetDateTime for the rescue
+
+* Speichert Datum und Uhrzeit und Offset (von UTC)
+* Damit: wenn die Maschinen und User in verschiedenen Zeitzonen sind, konsistenter Blick auf Zeitpunkte
+* Intern gespeichert als: LocalDateTime + ZoneOffset
+
+```java
+import static java.time.temporal.ChronoUnit.MINUTES;
+
+void main() {
+	var balloonPopped = OffsetDateTime.of(2025, 1, 13, 20, 0, 0, 0, ZoneOffset.ofHours(1));
+	System.out.println(balloonPopped);
+
+	var now = OffsetDateTime.now();
+	System.out.println(now);
+
+	var passed = MINUTES.between(balloonPopped, now);
+	System.out.println("(vor " + passed + " Minuten)");
+}
+```
+
+* Was soll da schon schiefgehen?
+
+
 
 ## Opener
 
