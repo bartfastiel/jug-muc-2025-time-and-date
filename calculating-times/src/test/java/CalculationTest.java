@@ -28,7 +28,7 @@ class CalculationTest {
 	}
 
 	@Test
-	void zonedDateTime_simply_adds_days() {
+	void zonedDateTime_switches_time_zone() {
 		assertEquals(
 				ZonedDateTime.parse("2025-03-30T14:00:00+02:00[Europe/Paris]"),
 				ZonedDateTime.parse("2025-03-29T14:00:00+01:00[Europe/Paris]").plusDays(1)
@@ -36,7 +36,7 @@ class CalculationTest {
 	}
 
 	@Test
-	void zonedDateTime_simply_adds_s() {
+	void zonedDateTime_takes_24_hours_as_1_day_1_hour() {
 		assertEquals(
 				ZonedDateTime.parse("2025-03-30T15:00:00+02:00[Europe/Paris]"),
 				ZonedDateTime.parse("2025-03-29T14:00:00+01:00[Europe/Paris]").plusHours(24)
@@ -44,7 +44,7 @@ class CalculationTest {
 	}
 
 	@Test
-	void offsetDateTime_simply_adds_days() {
+	void offsetDateTime_is_unaware_of_daylight_saving() {
 		assertEquals(
 				OffsetDateTime.parse("2025-03-30T14:00:00+01:00"),
 				OffsetDateTime.parse("2025-03-29T14:00:00+01:00").plusDays(1)
@@ -52,7 +52,7 @@ class CalculationTest {
 	}
 
 	@Test
-	void offsetDateTime_simply_adds_s() {
+	void offsetDateTime_always_takes_24_hours_as_1_day() {
 		assertEquals(
 				OffsetDateTime.parse("2025-03-30T14:00:00+01:00"),
 				OffsetDateTime.parse("2025-03-29T14:00:00+01:00").plusHours(24)
