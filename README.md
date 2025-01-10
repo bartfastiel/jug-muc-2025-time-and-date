@@ -46,6 +46,22 @@ void main() {
 * Was soll da schon schiefgehen?
 ```
 
+## LocalDateTime: Schattenseiten
+
+* Starten wir es mal in Docker
+
+```dockerfile
+FROM eclipse-temurin:23
+COPY src src
+ENTRYPOINT ["java", "--enable-preview", "src/main/java/Baloon.java"]
+```
+
+* Keine Zeitzone
+  * => Achtung, Zeitreisen möglich
+* Keine Zeitumstellung
+  * => Achtung, nicht eindeutig
+  * => Achtung, Lücken
+
 
 ## Opener
 

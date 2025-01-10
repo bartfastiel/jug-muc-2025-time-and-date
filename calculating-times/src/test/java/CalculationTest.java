@@ -28,6 +28,14 @@ class CalculationTest {
 	}
 
 	@Test
+	void localDateTime_always_takes_24_hours_as_1_day() {
+		assertEquals(
+				LocalDateTime.parse("2025-03-30T14:00:00"),
+				LocalDateTime.parse("2025-03-29T14:00:00").plusHours(24)
+		);
+	}
+
+	@Test
 	void zonedDateTime_switches_time_zone() {
 		assertEquals(
 				ZonedDateTime.parse("2025-03-30T14:00:00+02:00[Europe/Paris]"),
