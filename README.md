@@ -85,6 +85,10 @@ void main() {
 
 * Was soll da schon schiefgehen?
 
+## OffsetDateTime: Schattenseiten
+
+* Es speichert den Unterschied zu UTC
+  * Aber nicht die Zeitzone
 
 
 ## Opener
@@ -102,28 +106,6 @@ void main() {
   * Wäre der Tag vielleicht ein 28tel, 29tel, 30tel des Monats
   * Wäre die Stunde vielleicht ein 23tel oder 25tel des Tages (Sommerzeit-Winterzeit-Zeitumstellung)
   * Oder hätte eine der Minuten vielleicht 61 Sekunden (Schaltsekunde)
-
-## Vorstellung
-
-* Vor 20 Jahren habe ich bei einer großen Versicherung Java gelernt
-* Und danach z.B. bei einem Stromnetzbetreiber ein System entwickelt um den internationalen Handelspartnern die zu übertragenden Strommengen pro Stunde zu melden
-* Und für Münchens öffentliche Verkehrsmittel ein System zur Protokollierung von Unfällen geschrieben
-* Derzeit arbeite ich in einem Forschungsprojekt an einem SmartHome-System
-* Disclaimer: Aber dieser Vortrag ist privat und hat nicht mit meinem aktuellen oder früheren Arbeitgebern zu tun
-
-* Oft der Gedanke: nehmen wir doch eine einfache Lösung für Datum und Uhrzeit
-* "Was soll da schon schiefgehen?"
-
-* Nehmen wir doch einfach durchgehende long
-* Oder durchgehend LocalDateTime
-* "Was soll da schon schiefgehen?"
-
-* Ich sage es vor, ihr sagt es nach: "Was soll da schon schiefgehen?"
-* Alle: "Was soll da schon schiefgehen?"
-
-* Und das ist auch das Ziel des Vortrags:
-  * Awareness für verschiedene Fallstricke schaffen
-  * Überzeugen, dass man die Java-API nutzen sollte und nicht selbst implementieren
 
 ## Zivile Zeit
 
@@ -159,16 +141,10 @@ unit Hz, which is equal to s⁻¹.
   * 1 Stunde = 60 Minuten
   * 1 Tag = 24 Stunden
 
-## Eine Welt in UTC
+# Zusammengefasst
 
-* Zeitzonen, Zeitumstellung, Schaltsekunden
-* Alles kompliziert
-* Wie würde die Welt aussehen, wenn wir global in UTC leben würden?
-* "Was soll da schon schiefgehen?"
-
-* Los Angeles feiert Nachmittags Silvester
-* Geburtstage gehen von Nachmittag zu Nachmittag
-* In einem Roman steht, dass der Protagonist bis 9 Uhr schläft. Ohne seine Position weiß man nicht, ob das früh oder spät ist.
+* Wenn wir über Zeitpunkte sprechen, sprechen wir meist über zivile Zeit
+* Wenn wir über Dauer sprechen, sprechen wir manchmal über wissenschaftliche Zeit, manchmal über zivile Zeit
 
 ## Beide Zeitsysteme haben ihre Berechtigung
 
@@ -182,12 +158,50 @@ unit Hz, which is equal to s⁻¹.
   * um die Ergebnisse von Experimenten zu reproduzieren
   * um die Marathon-Bestzeit zu dokumentieren
 
-## Wofür wir Datum und Uhrzeit nutzen
+# Also nicht OffsetDateTime?
 
-* Wir nutzen Datum und Uhrzeit um verschiedene Dinge auszudrücken
-  * Zeitpunkte (Punkt auf dem Zeitstrahl)
-  * Zeitspannen (Strecke auf dem Zeitstrahl)
-  * Zeitdauern (Länge der Strecke)
+* OffsetDateTime ist absolut ausreichend um Zeitpunkte festzuhalten
+* Zum Rechnen (Zeitpunkt + Dauer = Zeitpunkt) brauchen wir mehr: Das politische System
+
+# ZonedDateTime
+
+* ZonedDateTime speichert Datum, Uhrzeit und Zeitzone
+* Intern: LocalDateTime + ZoneId + ZoneOffset
+
+* Was soll da schon schiefgehen?
+
+## ZonedDateTime: Schattenseiten
+
+* Wir müssen unterscheiden:
+  * Wünschen wir eine Standort-unabhängige Angabe (z.B. weil wir uns in einer Videokonferenz treffen wollen)
+  * Oder eine Standort-abhängige Angabe
+    * Silvester
+    * Geburtstag
+    * Black Friday
+
+* Und wollen wir überhaupt so viel Information speichern?
+  * interessiert es uns bei einem Log-Eintrag, welche Zeitzone der Server hat?
+
+## Long
+
+* Wir können auch einfach die Sekunden seit 1970 (1.1., UTC) speichern
+* `System.currentTimeMillis()`
+
+* Was soll da schon schiefgehen?
+
+## Long: Schattenseiten
+
+* Genauigkeit: Millisekunden
+* Geringe Semantische Information
+  * Wenn Long ein Parameter ist
+  * Oder ein Returnwert
+
+## Instant
+
+* Instant speichert Sekunden und Nanosekunden seit 1970-01-01
+* Intern: Sekunden + Nanosekunden
+* Also ähnlich zu Long, aber mit Nanosekunden
+* Und mit semantischer Information (API-Dokumentation)
 
 ## In Java
 
@@ -201,6 +215,54 @@ unit Hz, which is equal to s⁻¹.
   * Null-safe
   * Thread-safe
 * Oder vielleicht auch mal `long`
+
+## Eine Welt in UTC
+
+* Zeitzonen, Zeitumstellung, Schaltsekunden
+* Alles kompliziert
+* Wie würde die Welt aussehen, wenn wir global in UTC leben würden?
+* "Was soll da schon schiefgehen?"
+
+* Los Angeles feiert Nachmittags Silvester
+* Geburtstage gehen von Nachmittag zu Nachmittag
+* In einem Roman steht, dass der Protagonist bis 9 Uhr schläft. Ohne seine Position weiß man nicht, ob das früh oder spät ist.
+
+
+## Zusammenfassung
+
+* Wir haben verschiedene Datentypen um Datum und Uhrzeit zu speichern
+  * LocalDateTime
+    * Einfach
+    * Kein Bezug zu UTC
+    * Keine Zeitzone
+    * Keine Zeitumstellung
+  * OffsetDateTime
+    * Einfach
+    * Mit Offset
+    * Keine Zeitzone
+    * Keine Zeitumstellung
+  * ZonedDateTime
+    * Mit Zeitzone
+    * Mit Offset
+    * Mit Zeitumstellung
+    * Zum Rechnen
+  * Instant
+    * Mit Nanosekunden
+    * Keine Zeitzone
+    * Keine Zeitumstellung
+  * Long
+    * Mit Millisekunden
+    * Keine semantische Information
+    * Immer UTC
+
+---
+
+## Wofür wir Datum und Uhrzeit nutzen
+
+* Wir nutzen Datum und Uhrzeit um verschiedene Dinge auszudrücken
+  * Zeitpunkte (Punkt auf dem Zeitstrahl)
+  * Zeitspannen (Strecke auf dem Zeitstrahl)
+  * Zeitdauern (Länge der Strecke)
 
 ## Schaltsekunde
 
