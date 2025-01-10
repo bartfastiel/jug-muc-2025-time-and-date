@@ -15,15 +15,31 @@
   * Als Sekunden seit 1970?
   * Als long? Als Date? Als LocalDateTime?
 
-## LocalDateTime
+## LocalDateTime: so schön einfach
+
+* Lasst uns das mal in Java machen
+* Ganz einfach
 
 ```java
 void main() {
 	var balloonPopped = LocalDateTime.of(2025, 1, 13, 20, 0, 0, 0);
 	System.out.println(balloonPopped);
+	
+	var now = LocalDateTime.now();
+    System.out.println(now);
 }
 ```
 
+```markdown
+# java.time.LocalDateTime
+* Seit Java 8
+* Datum und Uhrzeit ohne Zeitzone
+* Intern gespeichert als: LocalDate + LocalTime
+  * LocalDate: Jahr, Monat, Tag
+  * LocalTime: Stunde, Minute, Sekunde, Nanosekunde
+
+* Was soll da schon schiefgehen?
+```
 
 
 ## Opener
