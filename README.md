@@ -24,14 +24,14 @@
 import static java.time.temporal.ChronoUnit.MINUTES;
 
 void main() {
-  var balloonPopped = LocalDateTime.of(2025, 1, 13, 20, 0, 0, 0);
-  System.out.println(balloonPopped);
+	var balloonPopped = LocalDateTime.of(2025, 1, 13, 20, 0, 0, 0);
+	System.out.println(balloonPopped);
 
-  var now = LocalDateTime.now();
-  System.out.println(now);
+	var now = LocalDateTime.now();
+	System.out.println(now);
 
-  var passed = MINUTES.between(balloonPopped, now);
-  System.out.println("(vor " + passed + " Minuten)");
+	var passed = MINUTES.between(balloonPopped, now);
+	System.out.println("(vor " + passed + " Minuten)");
 }
 ```
 
@@ -53,7 +53,7 @@ void main() {
 ```dockerfile
 FROM eclipse-temurin:23
 COPY src src
-ENTRYPOINT ["java", "--enable-preview", "src/main/java/Baloon.java"]
+ENTRYPOINT ["java", "--enable-preview", "src/main/java/Example.java"]
 ```
 
 * Keine Zeitzone
@@ -255,6 +255,18 @@ unit Hz, which is equal to s⁻¹.
     * Keine semantische Information
     * Immer UTC
 
+## Entscheidungshilfe
+
+* Handelt es sich um ein Datum, das ortspezifisch ist (z.B. ein Geburtstag, der immer um 0:00 lokale Zeit beginnt)?
+  * => LocalDateTime
+* Ist der Ursprungsort egal oder unbekannt?
+  * Sind Typsicherheit oder Nanosekunden vorteilhaft?
+    * => Instant
+  * => Long
+* Soll mit dem Datum gerechnet werden (inkl. Sommer- und Winterzeit)?
+  * => ZonedDateTime
+* => OffsetDateTime
+
 ---
 
 ## Wofür wir Datum und Uhrzeit nutzen
@@ -264,6 +276,27 @@ unit Hz, which is equal to s⁻¹.
   * Zeitspannen (Strecke auf dem Zeitstrahl)
   * Zeitdauern (Länge der Strecke)
 
+## Schon gewusst?
+
+* Mit einem Datum meinen wir in der Regel die Zeitspanne eines Tages, mit Zeiten in der Regel Zeitpunkte
+  * Verwendet bitte nicht 23:59:59 als Endzeitpunkt für einen Tag
+* Tipp: Mocken von Zeit und Datum
+  * eigenen Service schreiben, der die Zeit liefert (und zeitgesteuert Dinge ausführt)
+
+## Zur Wiederholung: Fallbeispiele
+
+* Messenger möchte Popup mit Geburtstagsglückwunsch zum Start des Geburtstags anzeigen
+  * Speichern: LocalDate
+  * In Abhängigkeit der Zeitzone des Clients auswerten
+* Log-Eintrag: "Server gestartet"
+  * Instant
+* Abflugszeitpunkt eines Fluges
+  * ZonedDateTime
+* Datum für eine Video-Konferenz
+  * OffsetDateTime (z.B. in UTC)
+* Einsende-Ende für eine Aufgabe
+  * ZonedDateTime
+
 ## Schaltsekunde
 
 > On days that do have a leap second, the leap second is spread equally over the last 1000 seconds of the day, maintaining the appearance of exactly 86400 seconds per day.
@@ -271,6 +304,11 @@ unit Hz, which is equal to s⁻¹.
 * Java versucht die Schaltsekunde für Entwickler zu verstecken
 * An Tagen mit Schaltsekunden sind die letzten 1000 Sekunden des Tages länger (Uhr tickt langsamer)
 * `Instant.parse("2016-12-31T23:59:60Z")` entspricht `Instant.parse("2016-12-31T23:59:59Z")`
+
+## Java-Zeitzonen-Info
+
+* https://www.oracle.com/java/technologies/javase/tzupdater-readme.html
+* Könnte sich politisch ja auch in der Zukunft ändern
 
 ## Fun facts about 2025
 
@@ -281,3 +319,5 @@ unit Hz, which is equal to s⁻¹.
 ## Further reading
 
 * [JavaDoc java.time in Java 23](https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/time/package-summary.html)
+* [Numberphile: The Problem with Time & Timezones](https://www.youtube.com/watch?v=-5wpm-gesOY&ab_channel=Computerphile)
+* [Fireship: Time… a programmer's worst enemy](https://www.youtube.com/watch?v=iMVgvkVJuDI&ab_channel=Fireship)
